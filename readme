@@ -1,0 +1,20 @@
+# Custom C++ Game SDK
+
+A clean, engine-agnostic C++ SDK inspired by Source-style APIs.
+
+## Features
+- Plugin system (DLL / SO)
+- Lua scripting support
+- Tick / frame callbacks
+- Basic ECS architecture
+- No engine dependency
+
+## Goals
+- Modding support
+- Scriptable gameplay logic
+- Extendable SDK core
+
+## Roadmap
+- Rendering hooks
+- Input system
+- Networking layer

@@ -1,0 +1,52 @@
+CustomGameSDK/
+│
+├── CMakeLists.txt
+├── README.md
+│
+├── include/
+│   └── sdk/
+│       ├── sdk.h              # SDK giriş noktası
+│       ├── engine.h           # Engine interface
+│       ├── events.h           # Event sistemi
+│       ├── tick.h             # Tick / frame sistemi
+│       ├── plugin.h           # Plugin interface
+│       ├── plugin_loader.h    # Plugin manager
+│       ├── log.h              # Log sistemi
+│       │
+│       ├── ecs/
+│       │   ├── entity.h       # EntityID tanımı
+│       │   ├── components.h   # Position, Health vs
+│       │   └── ecs.h          # ECS public API
+│       │
+│       └── scripting/
+│           └── lua_api.h      # Lua'ya açılan C++ fonksiyonlar
+│
+├── src/
+│   ├── sdk.cpp
+│   ├── events.cpp
+│   ├── tick.cpp
+│   ├── plugin_loader.cpp
+│   ├── log.cpp
+│   │
+│   ├── ecs/
+│   │   └── ecs.cpp
+│   │
+│   └── scripting/
+│       ├── lua_engine.cpp     # Lua VM lifecycle
+│       └── lua_api.cpp        # Lua <-> ECS bridge
+│
+├── engine/                    # Mini FPS engine (SDK dışı ama bağlı)
+│   ├── engine_loop.cpp
+│   ├── input.cpp
+│   ├── physics.cpp
+│   └── render.cpp
+│
+├── plugins/
+│   └── example_plugin/
+│       ├── CMakeLists.txt
+│       └── example_plugin.cpp
+│
+├── scripts/
+│   └── test.lua
+│
+└── build/
