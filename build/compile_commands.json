@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/Users/sardorazimov/Desktop/cs_sdk/build",
+  "command": "/usr/bin/clang++  -I/Users/sardorazimov/Desktop/cs_sdk/include -g -std=gnu++20 -arch arm64 -o CMakeFiles/sdk.dir/src/sdk.cpp.o -c /Users/sardorazimov/Desktop/cs_sdk/src/sdk.cpp",
+  "file": "/Users/sardorazimov/Desktop/cs_sdk/src/sdk.cpp",
+  "output": "CMakeFiles/sdk.dir/src/sdk.cpp.o"
+},
+{
+  "directory": "/Users/sardorazimov/Desktop/cs_sdk/build",
+  "command": "/usr/bin/clang++  -I/Users/sardorazimov/Desktop/cs_sdk/include -g -std=gnu++20 -arch arm64 -o CMakeFiles/MyGame.dir/main.cpp.o -c /Users/sardorazimov/Desktop/cs_sdk/main.cpp",
+  "file": "/Users/sardorazimov/Desktop/cs_sdk/main.cpp",
+  "output": "CMakeFiles/MyGame.dir/main.cpp.o"
+}
+]

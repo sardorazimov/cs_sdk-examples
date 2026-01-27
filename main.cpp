@@ -1,9 +1,29 @@
-#include <iostream>
-using namespace std;
+#pragma once
+#include <cstdint>
 
-int main() {
-    // This statement prints "Hello World"
-    cout << "Hello World";
+// Forward declaration (Lua header'ı burada include etmiyoruz)
+struct lua_State;
 
-    return 0;
-}
+namespace sdk::scripting {
+
+    // ----------------------------------
+    // Lua VM yaşam döngüsü
+    // ----------------------------------
+
+    // Lua VM başlatır
+    bool InitLua();
+
+    // Lua VM kapatır
+    void ShutdownLua();
+
+    // Lua script çalıştırır
+    bool RunScript(const char* filePath);
+
+    // ----------------------------------
+    // SDK -> Lua API kayıtları
+    // ----------------------------------
+
+    // Entity / ECS API'lerini Lua'ya açar
+    void RegisterEntityAPI(lua_State* L);
+
+} // namespace sdk::scripting

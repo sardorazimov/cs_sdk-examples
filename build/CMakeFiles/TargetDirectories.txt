@@ -1,0 +1,4 @@
+/Users/sardorazimov/Desktop/cs_sdk/build/CMakeFiles/sdk.dir
+/Users/sardorazimov/Desktop/cs_sdk/build/CMakeFiles/MyGame.dir
+/Users/sardorazimov/Desktop/cs_sdk/build/CMakeFiles/edit_cache.dir
+/Users/sardorazimov/Desktop/cs_sdk/build/CMakeFiles/rebuild_cache.dir

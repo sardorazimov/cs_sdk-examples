@@ -1,16 +1,17 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "(lldb) Ekle",
-            "type": "cppdbg",
-            "request": "attach",
-            "program": "Program adını girin, örneğin: ${workspaceFolder}/a.out",
-            "MIMode": "lldb"
-        }
-
-    ]
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C++ Başlat (Mac)",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${command:cmake.launchTargetPath}",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "lldb"
+    }
+  ]
 }
