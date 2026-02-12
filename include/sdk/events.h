@@ -2,23 +2,26 @@
 
 #include <functional>
 #include <vector>
+#include <unordered_map>
+#include <any>
+
+namespace sdk
+{
 
 enum class EventType
 {
-    None = 0,
+    EngineStart,
     Update,
-    Render,
-    KeyPress,
+    Shutdown,
     PluginLoaded,
-    PluginUnloaded
+    Custom
 };
 
-class Event
+struct Event
 {
-public:
     EventType type;
 
-    Event(EventType t) : type(t) {}
+    std::any data;
 };
 
 using EventCallback = std::function<void(const Event&)>;
@@ -26,19 +29,29 @@ using EventCallback = std::function<void(const Event&)>;
 class EventManager
 {
 public:
-    void Subscribe(EventCallback cb)
+
+    void Subscribe(EventType type, EventCallback callback)
     {
-        callbacks.push_back(cb);
+        listeners[type].push_back(callback);
     }
 
     void Emit(const Event& event)
     {
-        for (auto& cb : callbacks)
+        auto it = listeners.find(event.type);
+
+        if (it == listeners.end())
+            return;
+
+        for (auto& cb : it->second)
         {
             cb(event);
         }
     }
 
 private:
-    std::vector<EventCallback> callbacks;
+
+    std::unordered_map<EventType,
+        std::vector<EventCallback>> listeners;
 };
+
+}

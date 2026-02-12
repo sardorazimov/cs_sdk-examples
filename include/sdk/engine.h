@@ -1,16 +1,20 @@
 #pragma once
 
-namespace sdk {
+#include "events.h"
 
-class IEngine {
+namespace sdk
+{
+
+class Engine
+{
 public:
-    virtual ~IEngine() = default;
 
-    // Engine log / console output
-    virtual void Print(const char* message) = 0;
+    static EventManager& GetEventManager()
+    {
+        static EventManager instance;
+        return instance;
+    }
 
-    // Engine tick sayısı (frame counter)
-    virtual int GetTick() const = 0;
 };
 
-} // namespace sdk
+}
