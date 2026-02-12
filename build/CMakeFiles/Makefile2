@@ -91,12 +91,12 @@ clean: CMakeFiles/engine.dir/clean
 CMakeFiles/cs_sdk.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cs_sdk.dir/build.make CMakeFiles/cs_sdk.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cs_sdk.dir/build.make CMakeFiles/cs_sdk.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/sardorazimov/cs_sdk-examples/build/CMakeFiles --progress-num=1,2,3 "Built target cs_sdk"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/sardorazimov/cs_sdk-examples/build/CMakeFiles --progress-num=1,2,3,4 "Built target cs_sdk"
 .PHONY : CMakeFiles/cs_sdk.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/cs_sdk.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sardorazimov/cs_sdk-examples/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sardorazimov/cs_sdk-examples/build/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/cs_sdk.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sardorazimov/cs_sdk-examples/build/CMakeFiles 0
 .PHONY : CMakeFiles/cs_sdk.dir/rule
@@ -108,7 +108,7 @@ cs_sdk: CMakeFiles/cs_sdk.dir/rule
 # codegen rule for target.
 CMakeFiles/cs_sdk.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cs_sdk.dir/build.make CMakeFiles/cs_sdk.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/sardorazimov/cs_sdk-examples/build/CMakeFiles --progress-num=1,2,3 "Finished codegen for target cs_sdk"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/sardorazimov/cs_sdk-examples/build/CMakeFiles --progress-num=1,2,3,4 "Finished codegen for target cs_sdk"
 .PHONY : CMakeFiles/cs_sdk.dir/codegen
 
 # clean rule for target.
@@ -123,12 +123,12 @@ CMakeFiles/cs_sdk.dir/clean:
 CMakeFiles/example_plugin.dir/all: CMakeFiles/cs_sdk.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example_plugin.dir/build.make CMakeFiles/example_plugin.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example_plugin.dir/build.make CMakeFiles/example_plugin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/sardorazimov/cs_sdk-examples/build/CMakeFiles --progress-num=6,7 "Built target example_plugin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/sardorazimov/cs_sdk-examples/build/CMakeFiles --progress-num=7,8 "Built target example_plugin"
 .PHONY : CMakeFiles/example_plugin.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/example_plugin.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sardorazimov/cs_sdk-examples/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sardorazimov/cs_sdk-examples/build/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/example_plugin.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sardorazimov/cs_sdk-examples/build/CMakeFiles 0
 .PHONY : CMakeFiles/example_plugin.dir/rule
@@ -140,7 +140,7 @@ example_plugin: CMakeFiles/example_plugin.dir/rule
 # codegen rule for target.
 CMakeFiles/example_plugin.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example_plugin.dir/build.make CMakeFiles/example_plugin.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/sardorazimov/cs_sdk-examples/build/CMakeFiles --progress-num=6,7 "Finished codegen for target example_plugin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/sardorazimov/cs_sdk-examples/build/CMakeFiles --progress-num=7,8 "Finished codegen for target example_plugin"
 .PHONY : CMakeFiles/example_plugin.dir/codegen
 
 # clean rule for target.
@@ -155,12 +155,12 @@ CMakeFiles/example_plugin.dir/clean:
 CMakeFiles/engine.dir/all: CMakeFiles/cs_sdk.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/sardorazimov/cs_sdk-examples/build/CMakeFiles --progress-num=4,5 "Built target engine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/sardorazimov/cs_sdk-examples/build/CMakeFiles --progress-num=5,6 "Built target engine"
 .PHONY : CMakeFiles/engine.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/engine.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sardorazimov/cs_sdk-examples/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sardorazimov/cs_sdk-examples/build/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/engine.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sardorazimov/cs_sdk-examples/build/CMakeFiles 0
 .PHONY : CMakeFiles/engine.dir/rule
@@ -172,7 +172,7 @@ engine: CMakeFiles/engine.dir/rule
 # codegen rule for target.
 CMakeFiles/engine.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/sardorazimov/cs_sdk-examples/build/CMakeFiles --progress-num=4,5 "Finished codegen for target engine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/sardorazimov/cs_sdk-examples/build/CMakeFiles --progress-num=5,6 "Finished codegen for target engine"
 .PHONY : CMakeFiles/engine.dir/codegen
 
 # clean rule for target.

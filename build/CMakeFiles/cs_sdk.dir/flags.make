@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -Dcs_sdk_EXPORTS
 
-CXX_INCLUDES = -I/Users/sardorazimov/cs_sdk-examples/include
+CXX_INCLUDES = -I/Users/sardorazimov/cs_sdk-examples/include -I/opt/homebrew/include/lua
 
 CXX_FLAGSarm64 = -std=gnu++17 -arch arm64 -fPIC
 

@@ -5,11 +5,23 @@ project(cs_sdk LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# =========================
+# Lua
+# =========================
+
+find_package(Lua REQUIRED)
+
+# =========================
 # output klasörleri
+# =========================
+
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
+# =========================
 # include klasörü
+# =========================
+
 include_directories(include)
 
 # =========================
@@ -19,7 +31,12 @@ include_directories(include)
 add_library(cs_sdk SHARED
     src/sdk.cpp
     src/plugin_manager.cpp
+    src/lua_engine.cpp
 )
+
+target_include_directories(cs_sdk PRIVATE ${LUA_INCLUDE_DIR})
+
+target_link_libraries(cs_sdk PRIVATE ${LUA_LIBRARIES})
 
 # =========================
 # EXAMPLE PLUGIN
@@ -31,7 +48,6 @@ add_library(example_plugin SHARED
 
 target_link_libraries(example_plugin cs_sdk)
 
-# macOS lib prefix kaldır (example_plugin.dylib olsun)
 set_target_properties(example_plugin PROPERTIES PREFIX "")
 
 # =========================
@@ -48,6 +64,7 @@ target_link_libraries(engine cs_sdk)
 # macOS dynamic loading
 # =========================
 
+
 if(APPLE)
-    target_link_libraries(cs_sdk dl)
+    target_link_libraries(cs_sdk PRIVATE dl)
 endif()

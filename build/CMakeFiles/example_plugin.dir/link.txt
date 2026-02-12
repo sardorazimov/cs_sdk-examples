@@ -1,1 +1,1 @@
-/usr/bin/c++  -arch arm64 -dynamiclib -Wl,-headerpad_max_install_names -o bin/example_plugin.dylib -install_name @rpath/example_plugin.dylib CMakeFiles/example_plugin.dir/plugins/example_plugin.cpp.o  -Wl,-rpath,/Users/sardorazimov/cs_sdk-examples/build/bin bin/libcs_sdk.dylib -ldl
+/usr/bin/c++  -arch arm64 -dynamiclib -Wl,-headerpad_max_install_names -o bin/example_plugin.dylib -install_name @rpath/example_plugin.dylib CMakeFiles/example_plugin.dir/plugins/example_plugin.cpp.o  -Wl,-rpath,/Users/sardorazimov/cs_sdk-examples/build/bin bin/libcs_sdk.dylib

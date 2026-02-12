@@ -86,5 +86,28 @@ void PluginManager::UnloadAll()
 
     plugins.clear();
 }
+void PluginManager::LoadPluginsFromFolder(const std::string& folder)
+{
+    for (const auto& entry :
+         std::filesystem::directory_iterator(folder))
+    {
+        if (!entry.is_regular_file())
+            continue;
+
+        auto path = entry.path();
+
+#ifdef __APPLE__
+        if (path.extension() == ".dylib")
+#elif __linux__
+        if (path.extension() == ".so")
+#elif _WIN32
+        if (path.extension() == ".dll")
+#endif
+        {
+            LoadPlugin(path.string());
+        }
+    }
+}
+
 
 }

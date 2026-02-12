@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/cs_sdk.dir/src/lua_engine.cpp.o"
+  "CMakeFiles/cs_sdk.dir/src/lua_engine.cpp.o.d"
   "CMakeFiles/cs_sdk.dir/src/plugin_manager.cpp.o"
   "CMakeFiles/cs_sdk.dir/src/plugin_manager.cpp.o.d"
   "CMakeFiles/cs_sdk.dir/src/sdk.cpp.o"

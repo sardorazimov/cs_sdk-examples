@@ -201,6 +201,12 @@ CMAKE_TAPI:FILEPATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeD
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
+//Path to a file.
+LUA_INCLUDE_DIR:PATH=/opt/homebrew/include/lua
+
+//Path to a library.
+LUA_LIBRARY:FILEPATH=/opt/homebrew/lib/liblua5.4.dylib
+
 //Value Computed by CMake
 cs_sdk_BINARY_DIR:STATIC=/Users/sardorazimov/cs_sdk-examples/build
 
@@ -344,4 +350,10 @@ CMAKE_TAPI-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//Details about finding Lua
+FIND_PACKAGE_MESSAGE_DETAILS_Lua:INTERNAL=[/opt/homebrew/lib/liblua5.4.dylib][/opt/homebrew/include/lua][v5.4.8()]
+//ADVANCED property for variable: LUA_INCLUDE_DIR
+LUA_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: LUA_LIBRARY
+LUA_LIBRARY-ADVANCED:INTERNAL=1
 

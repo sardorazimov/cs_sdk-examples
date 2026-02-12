@@ -203,6 +203,30 @@ plugins/example_plugin.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example_plugin.dir/build.make CMakeFiles/example_plugin.dir/plugins/example_plugin.cpp.s
 .PHONY : plugins/example_plugin.cpp.s
 
+src/lua_engine.o: src/lua_engine.cpp.o
+.PHONY : src/lua_engine.o
+
+# target to build an object file
+src/lua_engine.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cs_sdk.dir/build.make CMakeFiles/cs_sdk.dir/src/lua_engine.cpp.o
+.PHONY : src/lua_engine.cpp.o
+
+src/lua_engine.i: src/lua_engine.cpp.i
+.PHONY : src/lua_engine.i
+
+# target to preprocess a source file
+src/lua_engine.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cs_sdk.dir/build.make CMakeFiles/cs_sdk.dir/src/lua_engine.cpp.i
+.PHONY : src/lua_engine.cpp.i
+
+src/lua_engine.s: src/lua_engine.cpp.s
+.PHONY : src/lua_engine.s
+
+# target to generate assembly for a file
+src/lua_engine.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cs_sdk.dir/build.make CMakeFiles/cs_sdk.dir/src/lua_engine.cpp.s
+.PHONY : src/lua_engine.cpp.s
+
 src/plugin_manager.o: src/plugin_manager.cpp.o
 .PHONY : src/plugin_manager.o
 
@@ -268,6 +292,9 @@ help:
 	@echo "... plugins/example_plugin.o"
 	@echo "... plugins/example_plugin.i"
 	@echo "... plugins/example_plugin.s"
+	@echo "... src/lua_engine.o"
+	@echo "... src/lua_engine.i"
+	@echo "... src/lua_engine.s"
 	@echo "... src/plugin_manager.o"
 	@echo "... src/plugin_manager.i"
 	@echo "... src/plugin_manager.s"

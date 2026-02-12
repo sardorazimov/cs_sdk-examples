@@ -1,7 +1,9 @@
 #pragma once
 
-#include <string>
 #include <vector>
+#include <string>
+#include <unordered_map>
+#include <filesystem>
 
 #include "plugin.h"
 
@@ -21,6 +23,8 @@ public:
 
     bool LoadPlugin(const std::string& path);
 
+    void LoadPluginsFromFolder(const std::string& folder); // ✅ BUNU EKLE
+
     void Tick(float deltaTime);
 
     void UnloadAll();
@@ -28,6 +32,7 @@ public:
 private:
 
     std::vector<LoadedPlugin> plugins;
+
 };
 
 }

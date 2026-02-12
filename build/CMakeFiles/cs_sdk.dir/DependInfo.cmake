@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/Users/sardorazimov/cs_sdk-examples/src/lua_engine.cpp" "CMakeFiles/cs_sdk.dir/src/lua_engine.cpp.o" "gcc" "CMakeFiles/cs_sdk.dir/src/lua_engine.cpp.o.d"
   "/Users/sardorazimov/cs_sdk-examples/src/plugin_manager.cpp" "CMakeFiles/cs_sdk.dir/src/plugin_manager.cpp.o" "gcc" "CMakeFiles/cs_sdk.dir/src/plugin_manager.cpp.o.d"
   "/Users/sardorazimov/cs_sdk-examples/src/sdk.cpp" "CMakeFiles/cs_sdk.dir/src/sdk.cpp.o" "gcc" "CMakeFiles/cs_sdk.dir/src/sdk.cpp.o.d"
   )
