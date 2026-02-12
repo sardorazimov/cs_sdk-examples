@@ -57,10 +57,10 @@ RM = /opt/homebrew/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/sardorazimov/Desktop/cs_sdk
+CMAKE_SOURCE_DIR = /Users/sardorazimov/cs_sdk-examples
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/sardorazimov/Desktop/cs_sdk/build
+CMAKE_BINARY_DIR = /Users/sardorazimov/cs_sdk-examples/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sardorazimov/Desktop/cs_sdk/build/CMakeFiles /Users/sardorazimov/Desktop/cs_sdk/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sardorazimov/cs_sdk-examples/build/CMakeFiles /Users/sardorazimov/cs_sdk-examples/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sardorazimov/Desktop/cs_sdk/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sardorazimov/cs_sdk-examples/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -117,37 +117,50 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named sdk
+# Target rules for targets named cs_sdk
 
 # Build rule for target.
-sdk: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 sdk
-.PHONY : sdk
+cs_sdk: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cs_sdk
+.PHONY : cs_sdk
 
 # fast build rule for target.
-sdk/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdk.dir/build.make CMakeFiles/sdk.dir/build
-.PHONY : sdk/fast
+cs_sdk/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cs_sdk.dir/build.make CMakeFiles/cs_sdk.dir/build
+.PHONY : cs_sdk/fast
 
 #=============================================================================
-# Target rules for targets named MyGame
+# Target rules for targets named example_plugin
 
 # Build rule for target.
-MyGame: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MyGame
-.PHONY : MyGame
+example_plugin: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 example_plugin
+.PHONY : example_plugin
 
 # fast build rule for target.
-MyGame/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyGame.dir/build.make CMakeFiles/MyGame.dir/build
-.PHONY : MyGame/fast
+example_plugin/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/example_plugin.dir/build.make CMakeFiles/example_plugin.dir/build
+.PHONY : example_plugin/fast
+
+#=============================================================================
+# Target rules for targets named engine
+
+# Build rule for target.
+engine: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 engine
+.PHONY : engine
+
+# fast build rule for target.
+engine/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/build
+.PHONY : engine/fast
 
 main.o: main.cpp.o
 .PHONY : main.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyGame.dir/build.make CMakeFiles/MyGame.dir/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -155,7 +168,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyGame.dir/build.make CMakeFiles/MyGame.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -163,15 +176,63 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyGame.dir/build.make CMakeFiles/MyGame.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/main.cpp.s
 .PHONY : main.cpp.s
+
+plugins/example_plugin.o: plugins/example_plugin.cpp.o
+.PHONY : plugins/example_plugin.o
+
+# target to build an object file
+plugins/example_plugin.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/example_plugin.dir/build.make CMakeFiles/example_plugin.dir/plugins/example_plugin.cpp.o
+.PHONY : plugins/example_plugin.cpp.o
+
+plugins/example_plugin.i: plugins/example_plugin.cpp.i
+.PHONY : plugins/example_plugin.i
+
+# target to preprocess a source file
+plugins/example_plugin.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/example_plugin.dir/build.make CMakeFiles/example_plugin.dir/plugins/example_plugin.cpp.i
+.PHONY : plugins/example_plugin.cpp.i
+
+plugins/example_plugin.s: plugins/example_plugin.cpp.s
+.PHONY : plugins/example_plugin.s
+
+# target to generate assembly for a file
+plugins/example_plugin.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/example_plugin.dir/build.make CMakeFiles/example_plugin.dir/plugins/example_plugin.cpp.s
+.PHONY : plugins/example_plugin.cpp.s
+
+src/plugin_manager.o: src/plugin_manager.cpp.o
+.PHONY : src/plugin_manager.o
+
+# target to build an object file
+src/plugin_manager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cs_sdk.dir/build.make CMakeFiles/cs_sdk.dir/src/plugin_manager.cpp.o
+.PHONY : src/plugin_manager.cpp.o
+
+src/plugin_manager.i: src/plugin_manager.cpp.i
+.PHONY : src/plugin_manager.i
+
+# target to preprocess a source file
+src/plugin_manager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cs_sdk.dir/build.make CMakeFiles/cs_sdk.dir/src/plugin_manager.cpp.i
+.PHONY : src/plugin_manager.cpp.i
+
+src/plugin_manager.s: src/plugin_manager.cpp.s
+.PHONY : src/plugin_manager.s
+
+# target to generate assembly for a file
+src/plugin_manager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cs_sdk.dir/build.make CMakeFiles/cs_sdk.dir/src/plugin_manager.cpp.s
+.PHONY : src/plugin_manager.cpp.s
 
 src/sdk.o: src/sdk.cpp.o
 .PHONY : src/sdk.o
 
 # target to build an object file
 src/sdk.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdk.dir/build.make CMakeFiles/sdk.dir/src/sdk.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cs_sdk.dir/build.make CMakeFiles/cs_sdk.dir/src/sdk.cpp.o
 .PHONY : src/sdk.cpp.o
 
 src/sdk.i: src/sdk.cpp.i
@@ -179,7 +240,7 @@ src/sdk.i: src/sdk.cpp.i
 
 # target to preprocess a source file
 src/sdk.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdk.dir/build.make CMakeFiles/sdk.dir/src/sdk.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cs_sdk.dir/build.make CMakeFiles/cs_sdk.dir/src/sdk.cpp.i
 .PHONY : src/sdk.cpp.i
 
 src/sdk.s: src/sdk.cpp.s
@@ -187,7 +248,7 @@ src/sdk.s: src/sdk.cpp.s
 
 # target to generate assembly for a file
 src/sdk.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdk.dir/build.make CMakeFiles/sdk.dir/src/sdk.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cs_sdk.dir/build.make CMakeFiles/cs_sdk.dir/src/sdk.cpp.s
 .PHONY : src/sdk.cpp.s
 
 # Help Target
@@ -198,11 +259,18 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... MyGame"
-	@echo "... sdk"
+	@echo "... cs_sdk"
+	@echo "... engine"
+	@echo "... example_plugin"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... plugins/example_plugin.o"
+	@echo "... plugins/example_plugin.i"
+	@echo "... plugins/example_plugin.s"
+	@echo "... src/plugin_manager.o"
+	@echo "... src/plugin_manager.i"
+	@echo "... src/plugin_manager.s"
 	@echo "... src/sdk.o"
 	@echo "... src/sdk.i"
 	@echo "... src/sdk.s"

@@ -1,10 +1,15 @@
 #include "sdk/sdk.h"
-#include "sdk/log.h"
 
-void SDK::Init() {
-    Log::Info("SDK initialized");
+namespace sdk
+{
+
+bool SDK::Init()
+{
+    return true;
 }
 
-void SDK::Shutdown() {
-    Log::Info("SDK shutdown");
+void SDK::Shutdown()
+{
+}
+
 }

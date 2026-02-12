@@ -1,4 +1,5 @@
-/Users/sardorazimov/Desktop/cs_sdk/build/CMakeFiles/sdk.dir
-/Users/sardorazimov/Desktop/cs_sdk/build/CMakeFiles/MyGame.dir
-/Users/sardorazimov/Desktop/cs_sdk/build/CMakeFiles/edit_cache.dir
-/Users/sardorazimov/Desktop/cs_sdk/build/CMakeFiles/rebuild_cache.dir
+/Users/sardorazimov/cs_sdk-examples/build/CMakeFiles/cs_sdk.dir
+/Users/sardorazimov/cs_sdk-examples/build/CMakeFiles/example_plugin.dir
+/Users/sardorazimov/cs_sdk-examples/build/CMakeFiles/engine.dir
+/Users/sardorazimov/cs_sdk-examples/build/CMakeFiles/edit_cache.dir
+/Users/sardorazimov/cs_sdk-examples/build/CMakeFiles/rebuild_cache.dir

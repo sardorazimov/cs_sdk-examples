@@ -54,22 +54,24 @@ RM = /opt/homebrew/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/sardorazimov/Desktop/cs_sdk
+CMAKE_SOURCE_DIR = /Users/sardorazimov/cs_sdk-examples
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/sardorazimov/Desktop/cs_sdk/build
+CMAKE_BINARY_DIR = /Users/sardorazimov/cs_sdk-examples/build
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/sdk.dir/all
-all: CMakeFiles/MyGame.dir/all
+all: CMakeFiles/cs_sdk.dir/all
+all: CMakeFiles/example_plugin.dir/all
+all: CMakeFiles/engine.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
-codegen: CMakeFiles/sdk.dir/codegen
-codegen: CMakeFiles/MyGame.dir/codegen
+codegen: CMakeFiles/cs_sdk.dir/codegen
+codegen: CMakeFiles/example_plugin.dir/codegen
+codegen: CMakeFiles/engine.dir/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
@@ -77,73 +79,106 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/sdk.dir/clean
-clean: CMakeFiles/MyGame.dir/clean
+clean: CMakeFiles/cs_sdk.dir/clean
+clean: CMakeFiles/example_plugin.dir/clean
+clean: CMakeFiles/engine.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/sdk.dir
+# Target rules for target CMakeFiles/cs_sdk.dir
 
 # All Build rule for target.
-CMakeFiles/sdk.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdk.dir/build.make CMakeFiles/sdk.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdk.dir/build.make CMakeFiles/sdk.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/sardorazimov/Desktop/cs_sdk/build/CMakeFiles --progress-num=3,4 "Built target sdk"
-.PHONY : CMakeFiles/sdk.dir/all
+CMakeFiles/cs_sdk.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cs_sdk.dir/build.make CMakeFiles/cs_sdk.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cs_sdk.dir/build.make CMakeFiles/cs_sdk.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/sardorazimov/cs_sdk-examples/build/CMakeFiles --progress-num=1,2,3 "Built target cs_sdk"
+.PHONY : CMakeFiles/cs_sdk.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/sdk.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sardorazimov/Desktop/cs_sdk/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/sdk.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sardorazimov/Desktop/cs_sdk/build/CMakeFiles 0
-.PHONY : CMakeFiles/sdk.dir/rule
+CMakeFiles/cs_sdk.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sardorazimov/cs_sdk-examples/build/CMakeFiles 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/cs_sdk.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sardorazimov/cs_sdk-examples/build/CMakeFiles 0
+.PHONY : CMakeFiles/cs_sdk.dir/rule
 
 # Convenience name for target.
-sdk: CMakeFiles/sdk.dir/rule
-.PHONY : sdk
+cs_sdk: CMakeFiles/cs_sdk.dir/rule
+.PHONY : cs_sdk
 
 # codegen rule for target.
-CMakeFiles/sdk.dir/codegen:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdk.dir/build.make CMakeFiles/sdk.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/sardorazimov/Desktop/cs_sdk/build/CMakeFiles --progress-num=3,4 "Finished codegen for target sdk"
-.PHONY : CMakeFiles/sdk.dir/codegen
+CMakeFiles/cs_sdk.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cs_sdk.dir/build.make CMakeFiles/cs_sdk.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/sardorazimov/cs_sdk-examples/build/CMakeFiles --progress-num=1,2,3 "Finished codegen for target cs_sdk"
+.PHONY : CMakeFiles/cs_sdk.dir/codegen
 
 # clean rule for target.
-CMakeFiles/sdk.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdk.dir/build.make CMakeFiles/sdk.dir/clean
-.PHONY : CMakeFiles/sdk.dir/clean
+CMakeFiles/cs_sdk.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cs_sdk.dir/build.make CMakeFiles/cs_sdk.dir/clean
+.PHONY : CMakeFiles/cs_sdk.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/MyGame.dir
+# Target rules for target CMakeFiles/example_plugin.dir
 
 # All Build rule for target.
-CMakeFiles/MyGame.dir/all: CMakeFiles/sdk.dir/all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyGame.dir/build.make CMakeFiles/MyGame.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyGame.dir/build.make CMakeFiles/MyGame.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/sardorazimov/Desktop/cs_sdk/build/CMakeFiles --progress-num=1,2 "Built target MyGame"
-.PHONY : CMakeFiles/MyGame.dir/all
+CMakeFiles/example_plugin.dir/all: CMakeFiles/cs_sdk.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/example_plugin.dir/build.make CMakeFiles/example_plugin.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/example_plugin.dir/build.make CMakeFiles/example_plugin.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/sardorazimov/cs_sdk-examples/build/CMakeFiles --progress-num=6,7 "Built target example_plugin"
+.PHONY : CMakeFiles/example_plugin.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/MyGame.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sardorazimov/Desktop/cs_sdk/build/CMakeFiles 4
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/MyGame.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sardorazimov/Desktop/cs_sdk/build/CMakeFiles 0
-.PHONY : CMakeFiles/MyGame.dir/rule
+CMakeFiles/example_plugin.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sardorazimov/cs_sdk-examples/build/CMakeFiles 5
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/example_plugin.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sardorazimov/cs_sdk-examples/build/CMakeFiles 0
+.PHONY : CMakeFiles/example_plugin.dir/rule
 
 # Convenience name for target.
-MyGame: CMakeFiles/MyGame.dir/rule
-.PHONY : MyGame
+example_plugin: CMakeFiles/example_plugin.dir/rule
+.PHONY : example_plugin
 
 # codegen rule for target.
-CMakeFiles/MyGame.dir/codegen:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyGame.dir/build.make CMakeFiles/MyGame.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/sardorazimov/Desktop/cs_sdk/build/CMakeFiles --progress-num=1,2 "Finished codegen for target MyGame"
-.PHONY : CMakeFiles/MyGame.dir/codegen
+CMakeFiles/example_plugin.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/example_plugin.dir/build.make CMakeFiles/example_plugin.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/sardorazimov/cs_sdk-examples/build/CMakeFiles --progress-num=6,7 "Finished codegen for target example_plugin"
+.PHONY : CMakeFiles/example_plugin.dir/codegen
 
 # clean rule for target.
-CMakeFiles/MyGame.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyGame.dir/build.make CMakeFiles/MyGame.dir/clean
-.PHONY : CMakeFiles/MyGame.dir/clean
+CMakeFiles/example_plugin.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/example_plugin.dir/build.make CMakeFiles/example_plugin.dir/clean
+.PHONY : CMakeFiles/example_plugin.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/engine.dir
+
+# All Build rule for target.
+CMakeFiles/engine.dir/all: CMakeFiles/cs_sdk.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/sardorazimov/cs_sdk-examples/build/CMakeFiles --progress-num=4,5 "Built target engine"
+.PHONY : CMakeFiles/engine.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/engine.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sardorazimov/cs_sdk-examples/build/CMakeFiles 5
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/engine.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sardorazimov/cs_sdk-examples/build/CMakeFiles 0
+.PHONY : CMakeFiles/engine.dir/rule
+
+# Convenience name for target.
+engine: CMakeFiles/engine.dir/rule
+.PHONY : engine
+
+# codegen rule for target.
+CMakeFiles/engine.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/sardorazimov/cs_sdk-examples/build/CMakeFiles --progress-num=4,5 "Finished codegen for target engine"
+.PHONY : CMakeFiles/engine.dir/codegen
+
+# clean rule for target.
+CMakeFiles/engine.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/clean
+.PHONY : CMakeFiles/engine.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

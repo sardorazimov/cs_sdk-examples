@@ -1,29 +1,30 @@
-#pragma once
-#include <cstdint>
+#include "sdk/plugin_manager.h"
 
-// Forward declaration (Lua header'ı burada include etmiyoruz)
-struct lua_State;
+#include <chrono>
+#include <thread>
+#include <iostream>
 
-namespace sdk::scripting {
+int main()
+{
+    sdk::PluginManager pm;
 
-    // ----------------------------------
-    // Lua VM yaşam döngüsü
-    // ----------------------------------
+#ifdef __APPLE__
+    pm.LoadPlugin("./example_plugin.dylib");
+#elif __linux__
+    pm.LoadPlugin("./example_plugin.so");
+#elif _WIN32
+    pm.LoadPlugin("example_plugin.dll");
+#endif
 
-    // Lua VM başlatır
-    bool InitLua();
+    std::cout << "Engine started\n";
 
-    // Lua VM kapatır
-    void ShutdownLua();
+    while (true)
+    {
+        pm.Tick(0.016f);
 
-    // Lua script çalıştırır
-    bool RunScript(const char* filePath);
+        std::this_thread::sleep_for(
+            std::chrono::milliseconds(16));
+    }
 
-    // ----------------------------------
-    // SDK -> Lua API kayıtları
-    // ----------------------------------
-
-    // Entity / ECS API'lerini Lua'ya açar
-    void RegisterEntityAPI(lua_State* L);
-
-} // namespace sdk::scripting
+    return 0;
+}

@@ -1,0 +1,1 @@
+/usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/engine.dir/main.cpp.o -o bin/engine  -Wl,-rpath,/Users/sardorazimov/cs_sdk-examples/build/bin bin/libcs_sdk.dylib -ldl

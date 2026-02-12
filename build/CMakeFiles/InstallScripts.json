@@ -1,7 +1,7 @@
 {
 	"InstallScripts" : 
 	[
-		"/Users/sardorazimov/Desktop/cs_sdk/build/cmake_install.cmake"
+		"/Users/sardorazimov/cs_sdk-examples/build/cmake_install.cmake"
 	],
 	"Parallel" : false
 }

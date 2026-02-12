@@ -1,18 +1,44 @@
 #pragma once
+
 #include <functional>
-#include <string>
+#include <vector>
 
-namespace sdk {
-
-using EventCallback = std::function<void()>;
-
-class Events {
-public:
-    // Event'e listener ekler
-    static void On(const std::string& name, EventCallback callback);
-
-    // Event tetikler
-    static void Emit(const std::string& name);
+enum class EventType
+{
+    None = 0,
+    Update,
+    Render,
+    KeyPress,
+    PluginLoaded,
+    PluginUnloaded
 };
 
-} // namespace sdk
+class Event
+{
+public:
+    EventType type;
+
+    Event(EventType t) : type(t) {}
+};
+
+using EventCallback = std::function<void(const Event&)>;
+
+class EventManager
+{
+public:
+    void Subscribe(EventCallback cb)
+    {
+        callbacks.push_back(cb);
+    }
+
+    void Emit(const Event& event)
+    {
+        for (auto& cb : callbacks)
+        {
+            cb(event);
+        }
+    }
+
+private:
+    std::vector<EventCallback> callbacks;
+};

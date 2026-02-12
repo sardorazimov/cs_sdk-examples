@@ -1,2 +1,0 @@
-/usr/bin/ar qc libsdk.a CMakeFiles/sdk.dir/src/sdk.cpp.o
-/usr/bin/ranlib libsdk.a

@@ -1,20 +1,53 @@
-cmake_minimum_required(VERSION 3.15)
-project(CustomGameSDK)
+cmake_minimum_required(VERSION 3.16)
 
-set(CMAKE_CXX_STANDARD 20)
+project(cs_sdk LANGUAGES CXX)
 
-# Kütüphaneyi tanımla
-add_library(sdk
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# output klasörleri
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
+# include klasörü
+include_directories(include)
+
+# =========================
+# SDK LIBRARY
+# =========================
+
+add_library(cs_sdk SHARED
     src/sdk.cpp
-    # src/events.cpp  <-- Bu dosyalar klasöründe yoksa hata verir, varsa kalsın
-    # src/plugin_loader.cpp
+    src/plugin_manager.cpp
 )
 
-target_include_directories(sdk PUBLIC include)
+# =========================
+# EXAMPLE PLUGIN
+# =========================
 
-# --- EKLEMEN GEREKEN KISIM ---
-# main.cpp'yi çalıştırılabilir bir dosya olarak ekle
-add_executable(MyGame main.cpp)
+add_library(example_plugin SHARED
+    plugins/example_plugin.cpp
+)
 
-# main.cpp'nin sdk kütüphanesini kullanmasını sağla
-target_link_libraries(MyGame PRIVATE sdk)
+target_link_libraries(example_plugin cs_sdk)
+
+# macOS lib prefix kaldır (example_plugin.dylib olsun)
+set_target_properties(example_plugin PROPERTIES PREFIX "")
+
+# =========================
+# ENGINE EXECUTABLE
+# =========================
+
+add_executable(engine
+    main.cpp
+)
+
+target_link_libraries(engine cs_sdk)
+
+# =========================
+# macOS dynamic loading
+# =========================
+
+if(APPLE)
+    target_link_libraries(cs_sdk dl)
+endif()
