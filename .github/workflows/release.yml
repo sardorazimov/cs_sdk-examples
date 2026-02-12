@@ -1,0 +1,66 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  build-and-release:
+    name: Build and Release on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    permissions:
+      contents: write
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        build_type: [Release]
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up CMake
+      uses: jwlawson/actions-setup-cmake@v2
+      with:
+        cmake-version: '3.16.x'
+
+    - name: Configure CMake
+      run: cmake -B build -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
+
+    - name: Build
+      run: cmake --build build --config ${{ matrix.build_type }}
+
+    - name: Package artifacts (Linux/macOS)
+      if: runner.os != 'Windows'
+      run: |
+        if [ ! -d "build/bin" ]; then
+          echo "Error: build/bin directory not found"
+          exit 1
+        fi
+        cd build/bin
+        tar -czf ../../cs_sdk-${{ runner.os }}.tar.gz *
+        cd ../..
+        ls -lh cs_sdk-${{ runner.os }}.tar.gz
+
+    - name: Package artifacts (Windows)
+      if: runner.os == 'Windows'
+      run: |
+        if not exist "build\bin" (
+          echo Error: build\bin directory not found
+          exit /b 1
+        )
+        cd build\bin
+        7z a -tzip ..\..\cs_sdk-Windows.zip *
+        cd ..\..
+        dir cs_sdk-Windows.zip
+      shell: cmd
+
+    - name: Create Release and Upload Assets
+      uses: softprops/action-gh-release@v1
+      with:
+        files: cs_sdk-*
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

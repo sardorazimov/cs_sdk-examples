@@ -1,0 +1,45 @@
+name: Code Quality
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  lint:
+    name: Code Quality Check
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Check for common issues
+      run: |
+        echo "Checking for common code quality issues..."
+        
+        # Check for TODO/FIXME comments
+        echo "=== TODO/FIXME Comments ==="
+        grep -rn "TODO\|FIXME" --include="*.cpp" --include="*.h" --include="*.hpp" . || echo "No TODO/FIXME found"
+        
+        # Check for trailing whitespace
+        echo "=== Checking for trailing whitespace ==="
+        if grep -rn "[[:blank:]]$" --include="*.cpp" --include="*.h" --include="*.hpp" .; then
+          echo "Warning: Found trailing whitespace"
+        else
+          echo "No trailing whitespace found"
+        fi
+        
+        echo "Code quality check completed!"
+
+    - name: File structure validation
+      run: |
+        echo "=== Project Structure ==="
+        echo "Source files:"
+        find . -name "*.cpp" -o -name "*.h" | wc -l
+        echo "CMake files:"
+        find . -name "CMakeLists.txt" | wc -l
+        echo "Build system: CMake"
