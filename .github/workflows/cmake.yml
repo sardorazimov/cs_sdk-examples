@@ -4,8 +4,9 @@ on:
   push:
     branches: [ "main" ]
   pull_request:
-    branches: [ "main" ]
 
+
+    
 jobs:
   build:
 
@@ -13,11 +14,14 @@ jobs:
 
     steps:
 
-    - name: Checkout repository
+    - name: Checkout
       uses: actions/checkout@v4
 
-    - name: Install dependencies
+    - name: Install CMake
       run: sudo apt-get update && sudo apt-get install -y cmake g++
+
+    - name: Create plugins folder
+      run: mkdir -p plugins
 
     - name: Configure
       run: cmake -B build -S .
@@ -25,5 +29,5 @@ jobs:
     - name: Build
       run: cmake --build build
 
-    - name: List build output
+    - name: Verify outputs
       run: ls -la build/bin
