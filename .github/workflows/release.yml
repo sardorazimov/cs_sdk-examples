@@ -32,24 +32,32 @@ jobs:
     - name: Package artifacts (Linux/macOS)
       if: runner.os != 'Windows'
       run: |
+        if [ ! -d "build/bin" ]; then
+          echo "Error: build/bin directory not found"
+          exit 1
+        fi
         cd build/bin
-        tar -czf cs_sdk-${{ runner.os }}.tar.gz *
-        mv cs_sdk-${{ runner.os }}.tar.gz ../..
+        tar -czf ../../cs_sdk-${{ runner.os }}.tar.gz *
+        cd ../..
+        ls -lh cs_sdk-${{ runner.os }}.tar.gz
 
     - name: Package artifacts (Windows)
       if: runner.os == 'Windows'
       run: |
-        cd build/bin
-        7z a -tzip cs_sdk-Windows.zip *
-        move cs_sdk-Windows.zip ../..
+        if not exist "build\bin" (
+          echo Error: build\bin directory not found
+          exit /b 1
+        )
+        cd build\bin
+        7z a -tzip ..\..\cs_sdk-Windows.zip *
+        cd ..\..
+        dir cs_sdk-Windows.zip
       shell: cmd
 
     - name: Create Release and Upload Assets
       uses: softprops/action-gh-release@v1
       with:
-        files: |
-          cs_sdk-*.tar.gz
-          cs_sdk-*.zip
+        files: cs_sdk-*
         draft: false
         prerelease: false
       env:
