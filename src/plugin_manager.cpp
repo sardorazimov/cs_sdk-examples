@@ -5,6 +5,7 @@
 #ifdef __APPLE__
 #include <dlfcn.h>
 #endif
+#include <filesystem>
 
 namespace sdk
 {

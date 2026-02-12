@@ -18,6 +18,9 @@ public:
     bool LoadPlugin(const std::string& path);
 
     void Tick(float deltaTime);
+    
+    void LoadPluginsFromFolder(const std::string& folder);
+
 
     void UnloadAll();
 
