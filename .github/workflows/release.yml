@@ -6,27 +6,8 @@ on:
       - 'v*.*.*'
 
 jobs:
-  create-release:
-    name: Create Release
-    runs-on: ubuntu-latest
-    outputs:
-      upload_url: ${{ steps.create_release.outputs.upload_url }}
-    
-    steps:
-    - name: Create Release
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
-        draft: false
-        prerelease: false
-
-  build-and-upload:
-    name: Build and Upload Release Assets
-    needs: create-release
+  build-and-release:
+    name: Build and Release on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -63,24 +44,13 @@ jobs:
         move cs_sdk-Windows.zip ../..
       shell: cmd
 
-    - name: Upload Release Asset (Linux/macOS)
-      if: runner.os != 'Windows'
-      uses: actions/upload-release-asset@v1
+    - name: Create Release and Upload Assets
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          cs_sdk-*.tar.gz
+          cs_sdk-*.zip
+        draft: false
+        prerelease: false
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ needs.create-release.outputs.upload_url }}
-        asset_path: ./cs_sdk-${{ runner.os }}.tar.gz
-        asset_name: cs_sdk-${{ runner.os }}.tar.gz
-        asset_content_type: application/gzip
-
-    - name: Upload Release Asset (Windows)
-      if: runner.os == 'Windows'
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ needs.create-release.outputs.upload_url }}
-        asset_path: ./cs_sdk-Windows.zip
-        asset_name: cs_sdk-Windows.zip
-        asset_content_type: application/zip
