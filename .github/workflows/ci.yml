@@ -1,0 +1,55 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    name: Build on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        build_type: [Release]
+        include:
+          - os: ubuntu-latest
+            cmake_args: ""
+          - os: macos-latest
+            cmake_args: ""
+          - os: windows-latest
+            cmake_args: ""
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up CMake
+      uses: jwlawson/actions-setup-cmake@v2
+      with:
+        cmake-version: '3.16.x'
+
+    - name: Configure CMake
+      run: cmake -B build -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} ${{ matrix.cmake_args }}
+
+    - name: Build
+      run: cmake --build build --config ${{ matrix.build_type }}
+
+    - name: List build artifacts (Linux/macOS)
+      if: runner.os != 'Windows'
+      run: ls -lR build/bin || ls -lR build
+
+    - name: List build artifacts (Windows)
+      if: runner.os == 'Windows'
+      run: dir build\bin /s || dir build /s
+      shell: cmd
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: cs_sdk-${{ matrix.os }}-${{ matrix.build_type }}
+        path: build/bin/
+        retention-days: 7
